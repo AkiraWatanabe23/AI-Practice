@@ -19,7 +19,17 @@ public class Chase : MonoBehaviour
     {
         if (_target != null)
         {
+            //destination...s‚«æ(AI‚Ìis•ûŒü‚ÌŒˆ’è)
             _agent.destination = _target.transform.position;
+        }
+    }
+
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Finish"))
+        {
+            col.gameObject.SetActive(false);
+            Debug.Log("’…‚¢‚½");
         }
     }
 }
