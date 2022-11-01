@@ -8,12 +8,6 @@ public class Chase : MonoBehaviour
     [SerializeField] NavMeshAgent _agent;
     [SerializeField] GameObject _target;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -24,11 +18,12 @@ public class Chase : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider other)
     {
-        if (col.gameObject.CompareTag("Finish"))
+
+        if (other.gameObject.CompareTag("Finish"))
         {
-            col.gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
             Debug.Log("’…‚¢‚½");
         }
     }
