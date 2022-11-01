@@ -18,9 +18,16 @@ public class PlayerMove : MonoBehaviour
     {
         float hol = Input.GetAxisRaw("Horizontal");
         float ver = Input.GetAxisRaw("Vertical");
-        float y = _rb.velocity.y;
 
         Vector3 dir = Vector3.forward * ver + Vector3.right * hol;
+        dir = Camera.main.transform.TransformDirection(dir);
+        dir.y = 0;
+        if (dir != Vector3.zero)
+        {
+            transform.forward = dir;
+        }
+
+        float y = _rb.velocity.y;
 
 
         _rb.velocity = dir * _moveSpeed + Vector3.up * y;
