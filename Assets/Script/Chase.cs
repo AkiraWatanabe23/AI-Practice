@@ -6,16 +6,13 @@ using UnityEngine.AI;
 public class Chase : MonoBehaviour
 {
     [SerializeField] NavMeshAgent _agent;
-    [SerializeField] GameObject _target;
+    [SerializeField] Transform _target;
 
     // Update is called once per frame
     void Update()
     {
-        if (_target != null)
-        {
-            //destination...行き先(AIの進行方向の決定)
-            _agent.destination = _target.transform.position;
-        }
+        //destination...行き先(AIの進行方向の決定)
+        _agent.SetDestination(_target.position);
     }
 
     private void OnTriggerEnter(Collider other)
