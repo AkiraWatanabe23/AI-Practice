@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    [Tooltip("Player‚ÌˆÚ“®‘¬“x")]
     [SerializeField, Range(0f, 10f)] private float _moveSpeed = 0f;
     private Rigidbody _rb;
+    /// <summary> ˆÚ“®‘¬“x </summary>
     public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
 
     // Start is called before the first frame update

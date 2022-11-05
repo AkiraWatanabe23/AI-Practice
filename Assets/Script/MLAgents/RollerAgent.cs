@@ -14,8 +14,7 @@ public class RollerAgent : Agent
     [SerializeField] private Transform _target;
     private Rigidbody _rb;
 
-    //‰Šú‰»‚ÉŒÄ‚Î‚ê‚é(Start‚Å‚à—Ç‚¢?)
-    public override void Initialize()
+    private void Start()
     {
         _rb = GetComponent<Rigidbody>();
     }
