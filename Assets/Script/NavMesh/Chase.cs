@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Chase : MonoBehaviour
 {
-    [SerializeField] NavMeshAgent _agent;
-    [SerializeField] Transform _target;
+    [SerializeField] private NavMeshAgent _agent;
+    [SerializeField] private Transform _target;
 
     // Update is called once per frame
     void Update()
@@ -17,8 +17,7 @@ public class Chase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.gameObject.CompareTag("Finish"))
+        if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.SetActive(false);
             Debug.Log("’…‚¢‚½");

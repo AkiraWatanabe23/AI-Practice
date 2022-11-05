@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField, Range(0f, 10f)] float _moveSpeed = 0f;
-    Rigidbody _rb;
+    [SerializeField, Range(0f, 10f)] private float _moveSpeed = 0f;
+    private Rigidbody _rb;
+    public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,6 @@ public class PlayerMove : MonoBehaviour
         float y = _rb.velocity.y;
 
 
-        _rb.velocity = dir * _moveSpeed + Vector3.up * y;
+        _rb.velocity = dir * MoveSpeed + Vector3.up * y;
     }
 }
