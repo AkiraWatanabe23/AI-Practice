@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Player‚ğ’Ç‚¢‚©‚¯‚éAI(‹S‚²‚Á‚±‚Ì‹S‚ÌƒCƒ[ƒW)
+/// </summary>
 public class Chase : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _agent;
