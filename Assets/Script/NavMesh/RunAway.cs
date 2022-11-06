@@ -12,7 +12,7 @@ public class RunAway : MonoBehaviour
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private GameObject _player;
     [Tooltip("逃げる先の位置")]
-    [SerializeField] private List<GameObject> _checkPoint = new();
+    private readonly List<GameObject> _checkPoint = new();
     private int _listCount = 0;
     private bool _runAwayCheck = false;
     private float _time = 0.0f;
@@ -25,14 +25,20 @@ public class RunAway : MonoBehaviour
         {
             _checkPoint.Add(GameObject.Find("GameObject").transform.GetChild(i).gameObject);
         }
+        _listCount = Random.Range(0, 10);
+        Debug.Log(_listCount);
     }
 
     // Update is called once per frame
     void Update()
     {
-        var dis = Vector3.Distance(_player.transform.position, transform.position);
+        //Playerと、このオブジェクトの距離をとる(Distanceは重くなる恐れがあるので、2乗の値で比較)
+        float disX = _player.transform.position.x - transform.position.x;
+        float disY = _player.transform.position.y - transform.position.y;
+        float disZ = _player.transform.position.z - transform.position.z;
+        float dis = disX*disX + disY*disY + disZ*disZ;
 
-        if (dis <= _runAwayDis)
+        if (dis <= _runAwayDis * _runAwayDis)
         {
             _runAwayCheck = true;
         }
@@ -40,14 +46,13 @@ public class RunAway : MonoBehaviour
         if (_runAwayCheck == true)
         {
             _agent.SetDestination
-                (_listCount != 9 ? _checkPoint[_listCount].transform.position : _checkPoint[0].transform.position);
+                (_checkPoint[_listCount].transform.position);
             _time += Time.deltaTime;
             if (_time > 2.0f)
             {
-                Debug.Log("Stop");
-                Debug.Log(_listCount);
                 _runAwayCheck = false;
-                _listCount += _listCount != 9 ? 1 : -_listCount;
+                _listCount = Random.Range(0, 10);
+                Debug.Log(_listCount);
                 _time = 0.0f;
             }
         }
