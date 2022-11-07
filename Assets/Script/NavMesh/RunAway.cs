@@ -41,10 +41,8 @@ public class RunAway : MonoBehaviour
     void Update()
     {
         //Playerと、このオブジェクトの距離をとる(Vector3.Distanceは重くなると考えたので、2乗の値で比較する)
-        float disX = _player.transform.position.x - transform.position.x;
-        float disY = _player.transform.position.y - transform.position.y;
-        float disZ = _player.transform.position.z - transform.position.z;
-        float dis = disX*disX + disY*disY + disZ*disZ;
+        //Vector3.SqrMagnitudeだと、2乗の値が返ってくる
+        float dis = Vector3.SqrMagnitude(_player.position - transform.position);
 
         //Playerとこのオブジェクトとの距離(の2乗)が一定より短くなったら
         if (dis <= _runAwayDis * _runAwayDis)
