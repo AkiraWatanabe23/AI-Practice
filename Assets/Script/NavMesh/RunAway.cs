@@ -13,7 +13,7 @@ public class RunAway : MonoBehaviour
     [Tooltip("Playerから逃げるスピード")]
     [SerializeField, Range(1.0f, 10.0f)] private float _runAwaySpeed = 5.0f;
     [SerializeField] private NavMeshAgent _agent;
-    [SerializeField] private GameObject _player;
+    [SerializeField] private Transform _player;
     [Tooltip("逃げる先の位置")]
     private readonly List<GameObject> _checkPoint = new();
     /// <summary> AIの逃げる先のPositionが格納されたListのインデックス </summary>
@@ -41,7 +41,6 @@ public class RunAway : MonoBehaviour
     void Update()
     {
         //Playerと、このオブジェクトの距離をとる(Vector3.Distanceは重くなると考えたので、2乗の値で比較する)
-        //※Distanceの方が、分量は減り、見やすくはなる
         float disX = _player.transform.position.x - transform.position.x;
         float disY = _player.transform.position.y - transform.position.y;
         float disZ = _player.transform.position.z - transform.position.z;
