@@ -379,7 +379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &357981573
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -493,7 +493,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2042,7 +2042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8979918109823107479, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8979918109823107562, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
       propertyPath: _target
@@ -2091,6 +2091,10 @@ PrefabInstance:
     - target: {fileID: 8979918109823107563, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979918109823107564, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
