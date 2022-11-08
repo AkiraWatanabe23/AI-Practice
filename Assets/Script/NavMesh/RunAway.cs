@@ -10,8 +10,6 @@ public class RunAway : MonoBehaviour
 {
     [Tooltip("Playerから逃げるまでの距離")]
     [SerializeField, Range(1.0f, 20.0f)] private float _runAwayDis = 5.0f;
-    [Tooltip("移動するスピード")]
-    [SerializeField, Range(1.0f, 10.0f)] private float _runAwaySpeed = 5.0f;
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Transform _player;
     /// <summary> 進行先を格納したList </summary>
@@ -28,8 +26,6 @@ public class RunAway : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //移動速度をInspectorで設定する
-        _agent.speed = _runAwaySpeed;
         //逃げる先のPositionをListに格納
         for (int i = 0; i < 10; i++)
         {
@@ -47,11 +43,6 @@ public class RunAway : MonoBehaviour
         //Playerと、このオブジェクトの距離をとる
         //Vector3.SqrMagnitudeだと、2乗の値が返ってくる
         float dis = Vector3.SqrMagnitude(_player.position - transform.position);
-        //以下の書き方でも、SqrMagnitudeとやっていることは同じ
-        //float disX = _player.position.x - transform.position.x;
-        //float disY = _player.position.y - transform.position.y;
-        //float disZ = _player.position.z - transform.position.z;
-        //float dis = disX * disX + disY * disY + disZ * disZ;
 
         //Playerとこのオブジェクトとの距離(の2乗)が一定より短くなったら && 待機状態なら
         //以下の条件式が正しく動かない時がある(移動中に以下の条件を満たした時?)
@@ -63,8 +54,7 @@ public class RunAway : MonoBehaviour
 
         if (_runAwayCheck == true)
         {
-            _agent.SetDestination
-                (_checkPoint[_listNum].transform.position);
+            _agent.SetDestination(_checkPoint[_listNum].transform.position);
             _time += Time.deltaTime;
             //一定時間経ったら移動を終了する
             if (_time > 2.0f)

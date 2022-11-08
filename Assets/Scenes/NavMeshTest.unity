@@ -134,17 +134,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
-    - target: {fileID: 6025331159236301473, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6025331159236301477, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6025331159236301477, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 6025331159236301477, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
       propertyPath: m_LocalPosition.y
@@ -370,7 +366,6 @@ GameObject:
   - component: {fileID: 357981575}
   - component: {fileID: 357981574}
   - component: {fileID: 357981573}
-  - component: {fileID: 357981578}
   - component: {fileID: 357981577}
   - component: {fileID: 357981579}
   m_Layer: 0
@@ -379,7 +374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &357981573
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -479,11 +474,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 5
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -491,22 +486,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!54 &357981578
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357981572}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &357981579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +499,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _runAwayDis: 7
-  _runAwaySpeed: 10
   _agent: {fileID: 357981577}
   _player: {fileID: 266098516}
 --- !u!1 &494613643
@@ -789,8 +767,12 @@ PrefabInstance:
       value: Cylinder
       objectReference: {fileID: 0}
     - target: {fileID: 7581657018338933899, guid: 78d5b705e3f2bff449eaebd206af80a6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581657018338933899, guid: 78d5b705e3f2bff449eaebd206af80a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7581657018338933903, guid: 78d5b705e3f2bff449eaebd206af80a6, type: 3}
       propertyPath: m_RootOrder
@@ -1688,6 +1670,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6025331159236301473, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6025331159236301477, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1900,6 +1886,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6025331159236301473, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6025331159236301477, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2052,7 +2042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8979918109823107479, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8979918109823107562, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
       propertyPath: _target
@@ -2102,9 +2092,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8979918109823107564, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
+    - target: {fileID: 8979918109823107565, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979918109823107565, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
+      propertyPath: m_Acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979918109823107565, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6b4c7728fd40384ba4e08fc9e517b3b, type: 3}
@@ -2461,6 +2459,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6025331159236301473, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025331159236301473, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
+      propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6025331159236301477, guid: d3200bc98e89e274eacbdf0bd0d3c298, type: 3}
